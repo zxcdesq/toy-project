@@ -1,0 +1,31 @@
+buildscript{
+    ext{ //전역 변수 springBootVersion = 2.1.7.RELEASE
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories{
+        mavenCentral()
+        jcenter()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+//자바 + 스프링부트 프로젝트 필수 플러그인 4개
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' //스프링부트의 의존성을 관리해 줌
+
+group 'com.achilles.shin'
+version '1.0-SNAPSHOT'
+//sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies{
+    compile('org.springframework.boot:spring-boot-starter-web')     // 버전 명시하면 위에 스프링부트 버전 안따라감.
+    testCompile('opg.springframework.boot:spring-boot-starter-test')
+}
